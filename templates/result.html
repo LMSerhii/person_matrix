@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<div class="header-settings">
+<div class="header-settings" style="vertical-align:top;text-anchor:middle;">
     <h1>ДАТА РОЖДЕНИЯ</h1>
     <span class="bd">{{ birthday }}</span>
 </div>
@@ -158,7 +158,7 @@
     </g>
 </svg>
 <div class="link">
-    <a href="{% url 'index' %}">Вернутся на главную</a>
+    <a href="{% url 'index' %}" style="vertical-align:top;text-anchor:middle;font-family:monospace;font-size:16px;" >Вернутся на главную</a>
 </div>
 
 {% endblock content %}
