@@ -1,0 +1,19 @@
+body {
+  background-image: url({% static "live/images/330278.jpg"%});
+  background-size: 100hv;
+  background-attachment: fixed;
+}
+.header-settings {
+    color: #7070db;
+
+    text-align: center;
+    width: 100%;
+    margin-left: 70px;
+    margin-right: 100px;
+}
+
+.svg-settings {
+    text-align: center;
+    width: 100%;
+    margin-right: 100px;
+}
