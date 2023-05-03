@@ -1,6 +1,19 @@
 from django.shortcuts import render
 
 
+def num_sum(num):
+    number = int(num)
+    if 100 > number > 27:
+        number = number % 10 + number // 10
+    elif 1000 > number >= 100:
+        number = number % 10 + (number % 100) // 10 + number // 100
+    elif number >= 1000:
+        number = number % 10 + (number % 100) // 10 + (number % 1000) // 100 + number // 1000
+        if number > 27:
+            return num_sum(number)
+    return number
+
+
 def index(request):
     context = {
         'title': 'Главная страница'
@@ -11,33 +24,25 @@ def index(request):
 def result(request):
     if request.method == 'GET':
         birthday = request.GET.get('birthday')
+
         res = birthday.split('.')
-        month = res[1]  # первый сверху
+        month = num_sum(res[1]) # первый сверху
+        day = num_sum(res[0])
+        year = num_sum(res[1])
 
-        if int(res[0]) > 27:  # первый слева
-            day = str(int(res[0][0]) + int(res[0][1]))
-        else:
-            day = res[0]
-
-        year = int(res[2][0]) + int(res[2][1]) + int(res[2][2]) + int(res[2][3])
-
-        if int(year) > 27: # первый справа
-            year = str(year)
-            year = str(int(year[0]) + int(year[1]))
-
-        formula_1 = int(day) + int(month) + int(year)  # Первый снизу
-        formula_2 = formula_1 * 2  # центр
-        formula_3 = int(day) + formula_2  # третий слева
-        formula_4 = int(day) + formula_3  # второй слева
-        formula_5 = int(month) + formula_2  # третий сверху
-        formula_6 = int(month) + formula_5  # второй сверху
-        formula_7 = int(year) + formula_2  # третий справа
-        formula_8 = int(year) + formula_7  # второй справа
-        formula_9 = formula_1 + formula_2  # третий снизу
-        formula_10 = formula_1 + formula_9  # второй снизу
-        formula_11 = formula_7 + formula_9  # четвертый правый-низ
-        formula_12 = formula_11 + formula_9  # love
-        formula_13 = formula_7 + formula_11  # money
+        f_1 = num_sum((day + month + year))  # Первый снизу
+        f_2 = f_1 * 2  # центр
+        f_3 = num_sum((day + f_2))  # третий слева
+        f_4 = num_sum((day + f_3))  # второй слева
+        f_5 = num_sum((month + f_2))  # третий сверху
+        f_6 = num_sum((month + f_5))  # второй сверху
+        f_7 = num_sum((year + f_2))  # третий справа
+        f_8 = num_sum((year + f_7))  # второй справа
+        f_9 = num_sum((f_1 + f_2))  # третий снизу
+        f_10 = num_sum((f_1 + f_2))  # второй снизу
+        f_11 = num_sum((f_7 + f_9))  # четвертый правый-низ
+        f_12 = num_sum((f_11 + f_9))  # love
+        f_13 = num_sum((f_7 + f_11))  # money
 
         context = {
             'title': 'Результат',
@@ -45,19 +50,19 @@ def result(request):
             'year': year,
             'day': day,
             'month': month,
-            'formula_1': formula_1,
-            'formula_2': formula_2,
-            'formula_3': formula_3,
-            'formula_4': formula_4,
-            'formula_5': formula_5,
-            'formula_6': formula_6,
-            'formula_7': formula_7,
-            'formula_8': formula_8,
-            'formula_9': formula_9,
-            'formula_10': formula_10,
-            'formula_11': formula_11,
-            'formula_12': formula_12,
-            'formula_13': formula_13
+            'f_1': f_1,
+            'f_2': f_2,
+            'f_3': f_3,
+            'f_4': f_4,
+            'f_5': f_5,
+            'f_6': f_6,
+            'f_7': f_7,
+            'f_8': f_8,
+            'f_9': f_9,
+            'f_10': f_10,
+            'f_11': f_11,
+            'f_12': f_12,
+            'f_13': f_13
         }
     else:
         context = {
