@@ -1,9 +1,17 @@
-day = 11
-month = 4
-year = 23
-
+day = 99
+month = 99
+year = 9999
 
 def num_sum(num):
+    if num > 27:
+        return num_sum(sum(map(int, list(str(num)))))
+    return num
+
+
+print(num_sum((day + month + year)))
+
+
+def num_sum1(num):
     number = int(num)
     if 100 > number > 27:
         number = number % 10 + number // 10
