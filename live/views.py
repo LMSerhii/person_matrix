@@ -26,15 +26,20 @@ def result(request):
         year = num_sum(res[2])  # первый справа
         f_1 = num_sum((day + month + year))  # Первый снизу
 
-        f_2 = num_sum((f_1 * 2))  # центр
+        f_2 = num_sum((f_1 + day + month + year))  # центр
+
         f_3 = num_sum((day + f_2))  # третий слева
         f_4 = num_sum((day + f_3))  # второй слева
+
         f_5 = num_sum((month + f_2))  # третий сверху
         f_6 = num_sum((month + f_5))  # второй сверху
+
         f_7 = num_sum((year + f_2))  # третий справа
         f_8 = num_sum((year + f_7))  # второй справа
+
         f_9 = num_sum((f_1 + f_2))  # третий снизу
-        f_10 = num_sum((f_1 + f_2))  # второй снизу
+        f_10 = num_sum((f_1 + f_9))  # второй снизу
+
         f_11 = num_sum((f_7 + f_9))  # четвертый правый-низ
         f_12 = num_sum((f_11 + f_9))  # love
         f_13 = num_sum((f_7 + f_11))  # money
