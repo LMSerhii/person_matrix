@@ -1,18 +1,30 @@
-body {
-  background-size: 100hv;
-  background-attachment: fixed;
-}
-.header-settings {
-    color: #7070db;
+ body {
+          background-image: url({% static "static/live/images/background.png"%});
+          background-size: 100hv;
+          background-attachment: fixed;
+        }
+        .header-settings {
+            color: #7070db;
+            text-align: center;
 
-    text-align: center;
-    width: 100%;
-    margin-left: 70px;
-    margin-right: 100px;
-}
+        }
+        .header-settings-index {
+            color: #202060;
+            margin-top: 220px;
+            text-align: center;
+            width: 100%;
+        }
+        .svg-settings {
+            text-align: center;
+            width: 100%;
+            margin-right: 100px;
+        }
+        .bd {
+            color: #202060;
+            font-size: 30px;
 
-.svg-settings {
-    text-align: center;
-    width: 100%;
-    margin-right: 100px;
-}
+        }
+        .link {
+            text-decoration: none;
+            teext-align: center;
+        }
