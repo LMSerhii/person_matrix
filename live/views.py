@@ -18,6 +18,7 @@ def index(request):
 def result(request):
     if request.method == 'GET':
         birthday = request.GET.get('birthday')
+        name = request.GET.get('name')
 
         res = birthday.split('.')
 
@@ -71,6 +72,7 @@ def result(request):
         context = {
             'title': 'Результат',
             'birthday': birthday,
+            'name': name,
             'year': year,
             'day': day,
             'month': month,
